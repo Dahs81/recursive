@@ -1,3 +1,5 @@
+
+// Nested JSON object
 var myObj = {
     name: 'level 1',
     layer: {
@@ -22,18 +24,15 @@ var myObj = {
 (function() {
     input1 = [];
     (function parse1(object) {
-        //input1 = [];
-        input1.name = object.name;
-        //var name = object.name;
-        input1.push(input1.name);
-        //console.log(name);
+        var name = object.name;
+        input1.push(name);
         document.write('</br>' + input1);
         if(object.layer) {
             parse1(object.layer);
         }
         return input1;
-    }(myObj))
-}())
+    }(myObj))  // Pass our nested object to the parse1 function and immediately invoke it
+}())  // Immediately invoke the `closure` function
 
 
 /*
@@ -49,11 +48,10 @@ var myObj = {
             parse2(object.layer);
         }
         var name = object.name;
-
         input2.push(name);
         console.log(name);
-        // document.write('</br>' + input2);
+        document.write('</br>' + input2);
         return input2;
-    }(myObj))
-}());
+    }(myObj))  // Pass our nested object to the parse1 function and immediately invoke it
+}());  // Immediately invoke the `closure` function
 
